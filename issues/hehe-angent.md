@@ -2,29 +2,24 @@ coreos angent
 ---
 
 > tutum-agent:
-
-> https://github.com/tutumcloud/tutum-agent
+https://github.com/tutumcloud/tutum-agent
 
 ----
 
 > metrics (use [cadvisor](https://github.com/google/cadvisor) + monitoring):
-
-> https://github.com/tutumcloud/metrics
+https://github.com/tutumcloud/metrics
 
 ----
 
 > [【实战】五个Docker监控工具的对比](http://www.tuicool.com/articles/fmeABnV)
-
-> [原文](http://rancher.com/comparing-monitoring-options-for-docker-deployments/)
+[原文](http://rancher.com/comparing-monitoring-options-for-docker-deployments/)
 
 
 -----
 
 > [heapster documents](https://github.com/kubernetes/heapster/tree/master/docs)
-
-> [Runnning Heapster on CoreOS](Runnning Heapster on CoreOS)
-
-> [Grafana documentation for InfluxDB](http://docs.grafana.org/datasources/influxdb/)
+[Runnning Heapster on CoreOS](Runnning Heapster on CoreOS)
+[Grafana documentation for InfluxDB](http://docs.grafana.org/datasources/influxdb/)
 
 
 
