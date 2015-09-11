@@ -5,11 +5,9 @@ coreos angent
 
 > https://github.com/tutumcloud/tutum-agent
 
-> (cadvisor)[https://github.com/google/cadvisor]
-
 ----
 
-> metrics:
+> metrics (use [cadvisor](https://github.com/google/cadvisor) + monitoring):
 
 > https://github.com/tutumcloud/metrics
 
