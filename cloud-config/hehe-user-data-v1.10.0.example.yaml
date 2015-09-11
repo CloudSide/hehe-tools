@@ -25,7 +25,7 @@ coreos:
       RestartSec=10s
       LimitNOFILE=40000
       EnvironmentFile=/etc/environment
-      Environment="ETCD_IMAGE=quay.io/coreos/etcd:v2.1.2"
+      Environment="ETCD_IMAGE=registry.hehecloud.com:5000/coreos/etcd:v2.1.2"
       Environment="ETCD_ELECTION_TIMEOUT=2000"
       Environment="ETCD_HEARTBEAT_INTERVAL=400"
       Environment="ETCD_HOST_DATA_DIR=/var/lib/etcd2"
@@ -93,11 +93,11 @@ coreos:
         --env=NOTIFY_SOCKET=/run/flannel/sd.sock \
         --env-file=/run/flannel/options.env \
         --volume=/usr/share/ca-certificates:/etc/ssl/certs:ro \
-        quay.io/coreos/flannel:${FLANNEL_VER} /opt/bin/flanneld --ip-masq=true
+        registry.hehecloud.com:5000/coreos/flannel:${FLANNEL_VER} /opt/bin/flanneld --ip-masq=true
 
       # Update docker options
       ExecStartPost=/usr/bin/docker run --net=host --rm -v /run:/run \
-        quay.io/coreos/flannel:${FLANNEL_VER} \
+        registry.hehecloud.com:5000/coreos/flannel:${FLANNEL_VER} \
         /opt/bin/mk-docker-opts.sh -d /run/flannel_docker_opts.env -i
   - name: stop-update-engine.service
     command: start
@@ -194,7 +194,7 @@ write_files:
           RELEASE=$DEIS_RELEASE
         fi
 
-        IMAGE=$1:$RELEASE
+        IMAGE=registry.hehecloud.com:5000/$1:$RELEASE
       fi
 
       # remove leading slash
