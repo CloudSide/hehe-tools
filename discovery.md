@@ -26,7 +26,10 @@ docker run -d -v /usr/share/ca-certificates/:/etc/ssl/certs -p 4001:4001 -p 2380
 * run discovery service as host mode
 
 ```
-docker run --name hehe-discovery -d --net=host --restart="always" quay.io/coreos/discovery.etcd.io
+docker run --name hehe-discovery -d --net=host \
+ --restart="always" \
+ -e "DISCOVERY_HOST=http://discovery.hehecloud.com" \
+ quay.io/coreos/discovery.etcd.io
  
 ```
 
