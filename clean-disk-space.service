@@ -1,0 +1,13 @@
+[Unit]
+Description=Clean up disk space
+
+[Service]
+Type=oneshot
+ExecStartPre=-/bin/sh -c 'docker pull martin/docker-cleanup-volumes'
+ExecStart=-"docker rm `docker ps -a | grep Exited | grep -v deis | awk '{print $1 }' | awk '{printf $0 " "}'`"
+ExecStart=-/bin/sh -c 'docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes'
+ExecStart=-/bin/sh -c 'docker images -aq | xargs -l10 docker rmi'
+ExecStart=-/run/deis/bin/preseed
+
+[X-Fleet]
+Global=true
