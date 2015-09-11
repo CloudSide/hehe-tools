@@ -24,6 +24,7 @@ coreos angent
 
 > [Runnning Heapster on CoreOS](Runnning Heapster on CoreOS)
 
+> [Grafana documentation for InfluxDB](http://docs.grafana.org/datasources/influxdb/)
 
 
 
