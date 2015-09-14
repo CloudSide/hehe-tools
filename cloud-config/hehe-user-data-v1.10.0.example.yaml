@@ -141,7 +141,7 @@ coreos:
       Description=etcd debugging service
 
       [Service]
-      ExecStartPre=/usr/bin/curl -sSL -o /opt/bin/jq http://stedolan.github.io/jq/download/linux64/jq
+      ExecStartPre=/usr/bin/curl -sSL -o /opt/bin/jq http://hehe.sinacloud.net/jq/jq
       ExecStartPre=/usr/bin/chmod +x /opt/bin/jq
       ExecStart=/usr/bin/bash -c "while true; do curl -sL http://127.0.0.1:4001/v2/stats/self | /opt/bin/jq . ; sleep 1 ; done"
   - name: increase-nf_conntrack-connections.service
@@ -310,7 +310,9 @@ write_files:
       ETCDCTL=/usr/bin/etcdctl
       if ! $ETCDCTL --version | grep -q "etcdctl version 2.0."; then
         ETCD_VERSION=2.0.13
-        curl -sSL https://github.com/coreos/etcd/releases/download/v${ETCD_VERSION}/etcd-v${ETCD_VERSION}-linux-amd64.tar.gz | \
+        # curl -sSL https://github.com/coreos/etcd/releases/download/v${ETCD_VERSION}/etcd-v${ETCD_VERSION}-linux-amd64.tar.gz | \
+        #   tar zxv -C /opt/bin etcd-v${ETCD_VERSION}-linux-amd64/etcdctl --strip=1
+        curl -sSL http://hehe.sinacloud.net/etcd/etcd-v${ETCD_VERSION}-linux-amd64.tar.gz | \
           tar zxv -C /opt/bin etcd-v${ETCD_VERSION}-linux-amd64/etcdctl --strip=1
         ETCDCTL="/opt/bin/etcdctl"
       fi
@@ -335,7 +337,8 @@ write_files:
       mkdir -p /opt/bin
       FILE=$1
       if [ ! -f /opt/bin/$FILE ]; then
-        curl -sSL -o /opt/bin/$FILE https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/linux/amd64/$FILE
+        # curl -sSL -o /opt/bin/$FILE https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/linux/amd64/$FILE
+        curl -sSL -o /opt/bin/$FILE http://hehe.sinacloud.net/kubernetes/${K8S_VERSION}/$FILE
         chmod +x /opt/bin/$FILE
       else
         # we check the version of the binary
@@ -343,7 +346,8 @@ write_files:
         MATCH=$(echo "${INSTALLED_VERSION}" | grep -c "${K8S_VERSION}")
         if [ $MATCH -eq 0 ]; then
           # the version is different
-          curl -sSL -o /opt/bin/$FILE https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/linux/amd64/$FILE
+          # curl -sSL -o /opt/bin/$FILE https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/linux/amd64/$FILE
+          curl -sSL -o /opt/bin/$FILE http://hehe.sinacloud.net/kubernetes/${K8S_VERSION}/$FILE
           chmod +x /opt/bin/$FILE
         fi
       fi
