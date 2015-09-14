@@ -134,7 +134,7 @@ coreos:
 
       [Service]
       Type=oneshot
-      ExecStart=/usr/bin/sh -c 'curl -sSL --retry 5 --retry-delay 2 http://deis.io/deisctl/install.sh | sh -s 1.10.0'
+      ExecStart=/usr/bin/sh -c 'curl -sSL --retry 5 --retry-delay 2 http://hehe.sinacloud.com/deisctl/install.sh | sh -s 1.10.0'
   - name: debug-etcd.service
     content: |
       [Unit]
