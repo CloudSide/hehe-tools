@@ -22,7 +22,7 @@ set -e
 # determine from whence to download the installer
 PLATFORM=`uname | tr '[:upper:]' '[:lower:]'`
 DEIS_INSTALLER=${DEIS_INSTALLER:-deisctl-$VERSION-$PLATFORM-amd64.run}
-DEIS_BASE_URL=${DEIS_BASE_URL:-http://hehe.sinacloud.com/deisctl}
+DEIS_BASE_URL=${DEIS_BASE_URL:-http://hehe.sinacloud.net/deisctl}
 INSTALLER_URL=$DEIS_BASE_URL/$DEIS_INSTALLER
 
 # download the installer archive to /tmp
