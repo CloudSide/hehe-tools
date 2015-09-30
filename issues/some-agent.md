@@ -8,3 +8,4 @@ some angent
 - buildkite/agent: https://github.com/buildkite/agent
 - Using Go to Execute Commands on Hundreds of Servers with SSH: http://kukuruku.co/hub/golang/ssh-commands-execution-on-hundreds-of-servers-via-go
 - sebest/hooky: https://github.com/sebest/hooky
+- Jumpscale/windowsagent: https://github.com/Jumpscale/windowsagent
