@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEIS_RELEASE=v1.10.1
+DEIS_RELEASE=v1.11.0
 BACKEND_HOST=127.0.0.1:5000;
 DOCKER_PULL="docker pull"
 
