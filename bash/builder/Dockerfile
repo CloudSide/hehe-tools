@@ -1,4 +1,4 @@
-FROM deis/builder:v1.11.0
+FROM deis/builder:v1.11.1
 
 ADD ./slugbuilder/Dockerfile /usr/local/src/slugbuilder/Dockerfile
 ADD ./slugbuilder/builder/install-buildpacks /usr/local/src/slugbuilder/builder/install-buildpacks

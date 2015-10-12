@@ -78,7 +78,7 @@ coreos:
 
         [Service]
         Type=oneshot
-        ExecStart=/usr/bin/sh -c 'curl -sSL --retry 5 --retry-delay 2 http://hehe.sinacloud.net/deisctl/install.sh | sh -s 1.11.0'
+        ExecStart=/usr/bin/sh -c 'curl -sSL --retry 5 --retry-delay 2 http://hehe.sinacloud.net/deisctl/install.sh | sh -s 1.11.1'
     - name: debug-etcd.service
       content: |
         [Unit]
@@ -105,7 +105,7 @@ write_files:
       COREOS_PRIVATE_IPV4=$private_ipv4
   - path: /etc/deis-release
     content: |
-      DEIS_RELEASE=v1.11.0
+      DEIS_RELEASE=v1.11.1
   - path: /etc/motd
     content: "\n\e[36m██╗  ██╗███████╗██╗  ██╗███████╗ ██████╗██╗      ██████╗ ██╗   ██╗██████╗ \n██║  ██║██╔════╝██║  ██║██╔════╝██╔════╝██║     ██╔═══██╗██║   ██║██╔══██╗\n███████║█████╗  ███████║█████╗  ██║     ██║     ██║   ██║██║   ██║██║  ██║\n██╔══██║██╔══╝  ██╔══██║██╔══╝  ██║     ██║     ██║   ██║██║   ██║██║  ██║\n██║  ██║███████╗██║  ██║███████╗╚██████╗███████╗╚██████╔╝╚██████╔╝██████╔╝\n╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝\n\n\e[39mWelcome to HeHeCloud\t\t\tPowered by Core\e[38;5;45mO\e[38;5;206mS\e[39m\n\n"
   - path: /etc/profile.d/nse-function.sh
