@@ -3,7 +3,7 @@
 coreos:
   etcd2:
     # generate a new token for each unique cluster from https://discovery.etcd.io/new
-    discovery: #DISCOVERY_URL
+    discovery: $DISCOVERY_URL
     # multi-region and multi-cloud deployments need to use $public_ipv4
     advertise-client-urls: http://$private_ipv4:2379
     initial-advertise-peer-urls: http://$private_ipv4:2380
@@ -96,6 +96,9 @@ coreos:
         ExecStartPre=/usr/sbin/modprobe nf_conntrack
         ExecStart=/bin/sh -c "sysctl -w net.netfilter.nf_conntrack_max=262144"
 write_files:
+  - path: /etc/machine-id
+    content: |
+      $machine-id
   - path: /etc/environment
     content: |
       COREOS_PUBLIC_IPV4=$public_ipv4
