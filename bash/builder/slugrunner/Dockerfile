@@ -1,4 +1,4 @@
-FROM registry.hehecloud.com:5000:5000/heroku/cedar:14
+FROM daocloud.io/cloudmario/cedar:14
 
 RUN mkdir /app
 RUN addgroup --quiet --gid 2000 slug && \
