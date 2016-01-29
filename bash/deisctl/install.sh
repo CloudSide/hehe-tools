@@ -16,6 +16,14 @@ if [ -z "$INSTALLER_OPTS" ] && [ "$OS" = "CoreOS" ]; then
     INSTALL_GLOBAL_UNITS=true
 fi
 
+function retry() {
+	local TRY_CMD="${@: 1}"
+	local NEXT_WAIT_TIME=0
+	until $TRY_CMD || [ $NEXT_WAIT_TIME -eq 60 ]; do
+		sleep $(( NEXT_WAIT_TIME++ ))
+	done
+}
+
 # catch errors from here on out
 set -e
 
@@ -26,14 +34,14 @@ DEIS_BASE_URL=${DEIS_BASE_URL:-http://hehe.sinacloud.net/deisctl}
 INSTALLER_URL=$DEIS_BASE_URL/$DEIS_INSTALLER
 
 # download the installer archive to /tmp
-curl -f -o /tmp/$DEIS_INSTALLER $INSTALLER_URL
+retry curl -f -o /tmp/$DEIS_INSTALLER $INSTALLER_URL
 
 # run the installer
-sh /tmp/$DEIS_INSTALLER $INSTALLER_OPTS
+retry sh /tmp/$DEIS_INSTALLER $INSTALLER_OPTS
 
 # install the unit files to /var/lib/deis/units on CoreOS by default
 if [ "$INSTALL_GLOBAL_UNITS" = "true" ]; then
-    /opt/bin/deisctl refresh-units --path=/var/lib/deis/units --tag=v$VERSION
+    retry /opt/bin/deisctl refresh-units --path=/var/lib/deis/units --tag=v$VERSION
 fi
 
 # clean up after ourselves
