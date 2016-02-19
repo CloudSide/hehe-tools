@@ -39,14 +39,14 @@ docker run -it --name phppgadmin_v2.cmd.1 \
   --rm -p 10801:8000 \
   -e EXTERNAL_PORT=10801 \
   -e HOST=<your ip address in etct cluster> \
-  hehecloud/deis-phppgadmin
+  hehecloud/phppgadmin
 
 # clean etcd info
 docker run -it --name phppgadmin_v2.cmd.1 \
   --rm -p 10801:8000 \
   -e EXTERNAL_PORT=10801 \
   -e HOST=<your ip address in etct cluster> \
-  hehecloud/deis-phppgadmin \
+  hehecloud/phppgadmin \
   /app/bin/clean
 ```
 
