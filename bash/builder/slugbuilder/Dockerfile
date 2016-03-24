@@ -8,7 +8,8 @@ USER slug
 ENV HOME /app
 
 ADD ./builder/ /tmp/builder
-RUN /tmp/builder/install-buildpacks
+ADD ./buildpacks/ /tmp/buildpacks
+# RUN /tmp/builder/install-buildpacks
 ENTRYPOINT ["/tmp/builder/build.sh"]
 
 ENV DEIS_RELEASE 1.12.2
