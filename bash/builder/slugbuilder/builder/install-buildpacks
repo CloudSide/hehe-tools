@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-BUILDPACK_INSTALL_PATH="/tmp/buildpacks"
+BUILDPACK_INSTALL_PATH=${1:-/tmp/buildpacks}
 
 download_buildpack() {
     buildpack_url="$1"
