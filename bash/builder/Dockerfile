@@ -6,3 +6,4 @@ ADD ./slugrunner/Dockerfile /usr/local/src/slugrunner/Dockerfile
 ADD ./slugbuilder/buildpacks/ /usr/local/src/slugbuilder/buildpacks
 
 RUN chmod +x /usr/local/src/slugbuilder/builder/install-buildpacks
+RUN /usr/local/src/slugbuilder/builder/install-buildpacks

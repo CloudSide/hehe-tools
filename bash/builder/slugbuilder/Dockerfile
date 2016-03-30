@@ -8,7 +8,7 @@ USER slug
 ENV HOME /app
 
 ADD ./builder/ /tmp/builder
-ADD ./buildpacks/ /tmp/buildpacks
+ADD /tmp/buildpacks/ /tmp/buildpacks
 # RUN /tmp/builder/install-buildpacks
 ENTRYPOINT ["/tmp/builder/build.sh"]
 
